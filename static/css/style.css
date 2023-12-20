@@ -8,14 +8,17 @@ body,
 html {
   height: 100%;
 }
-/* let legendInfo = "<h1>Population with Children<br />(ages 6-17)</h1>" + */
-  /* "<div class=\"labels\">" + */
-    /* "<div class=\"min\">" + limits[0] + "</div>" + */
-    /* "<div class=\"max\">" + limits[limits.length - 1] + "</div>" + */
-  /* "</div>"; */
-/* div.innerHTML = legendInfo; */
-/* limits.forEach(function(limit, index) { */
-  /* labels.push("<li style=\"background-color: " + colors[index] + "\"></li>"); */
-/* }); */
-/* div.innerHTML += "<ul>" + labels.join("") + "</ul>"; */
-/* return div; */
+.legend {
+  line-height: 18px;
+  color: #555;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}

@@ -105,23 +105,26 @@ const geojsonlayer = L.geoJSON(earthquakes.toGeoJSON(), {
       }
                                
 }).addTo(myMap)
+
+// Adding Legend
 var legend = L.control({position: "bottomright"});
-legend.onAdd = function(myMap) {
+legend.onAdd = function() {
     let div = L.DomUtil.create("div", "info legend");
-    let depthRange = [-10, 10, 30, 50, 70, 90, 110];
+    let depthRange = [-10, 10, 30, 50, 70, 90];
     let colors = ["#98EE00", "#D4EE00",  "#EECC00", "#EE9C00", "#EA822C", "#EA2C2C"];
     let labels = []
 
-    let legendInfo = '<i style="background:' + getColor(depthRange[i] + 1) + '"></i> ' + depthRange[i] + (depthRange[i + 1] ? '&ndash;' + depthRange[i + 1] + '<br>' : '+');
+    // let legendInfo = '<i style="background:' + colors(depthRange[i] + 1) + '"></i> ' + depthRange[i] + (depthRange[i + 1] ? '&ndash;' + depthRange[i + 1] + '<br>' : '+');
     for (var i = 0; i < depthRange.length; i++) {
-        div.innerHTML += legendInfo
-        depthRange.forEach(function(depthRange, index) {
-          labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
-        });
-           div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+        div.innerHTML += '<i style="background:' + colors[i] + '"></i> ' + depthRange[i] + (depthRange[i + 1] ? '&ndash;' + depthRange[i + 1] + '<br>' : '+');
+        // depthRange.forEach(function(depthRange, index) {
+          // labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
 
-           return div;
+        // };
+          //  div.innerHTML += "<ul>" + labels.join("") + "</ul>";
         };
-};
+           return div;
+       
+      };
 legend.addTo(myMap);
 };
